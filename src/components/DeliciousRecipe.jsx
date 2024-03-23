@@ -1,5 +1,4 @@
 import React from "react";
-import Salad from "../images/Salad.svg";
 import { PiTimerFill } from "react-icons/pi";
 import { PiForkKnifeFill } from "react-icons/pi";
 
@@ -8,9 +7,9 @@ const DeliciousRecipe = ({name,image}) => {
   return (
     <article>
       <div className="min-w-60 max-h-60 overflow-hidden rounded-3xl">
-        <img className="w-full h-full" src={image} alt="" />
+        <img loading="lazy" className="w-full h-full" src={image} alt="" />
       </div>
-      <h2 className="font-bold p-1 ">
+      <h2 className="font-bold p-1 cursor-pointer max-w-max hover:text-orange-400">
         {name}
       </h2>
       <div className="flex gap-6 mt-4">

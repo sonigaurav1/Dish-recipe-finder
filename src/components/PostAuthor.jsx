@@ -1,9 +1,11 @@
 import React from 'react'
-import Me from '../images/mine.jpeg'
+import Me from '../images/mine.webp'
 
 const PostAuthor = () => {
   return (
-    <div className='flex items-center gap-2'>
+    <div onClick={()=>{
+      window.open("https://gauravsonidev.vercel.app/")
+    }} className='flex items-center gap-2 cursor-pointer'>
       <div className='size-10 rounded-full overflow-hidden'>
         <img src={Me} alt="chef" />
       </div>

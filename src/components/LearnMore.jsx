@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "../images/learnmore.avif";
+import Image from "../images/learnmore.webp";
 import ViewRecipeButton from "./ViewRecipeButton";
 
 const LearnMore = () => {
@@ -12,7 +12,7 @@ const LearnMore = () => {
             <ViewRecipeButton>Learn More</ViewRecipeButton>
         </div>
         <div className="w-[45%] h-full">
-          <img className="object-cover" src={Image} alt="chicken wings" />
+          <img loading="lazy" className="object-cover" src={Image} alt="chicken wings" />
         </div>
       </div>
     </section>
