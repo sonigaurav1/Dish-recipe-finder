@@ -93,7 +93,7 @@ const Recipes = () => {
       >
         <input
           required
-          className="border border-black rounded-2xl pl-2 mr-2 w-2/5 h-9 outline-none"
+          className="border border-black rounded-2xl pl-2 mr-2 w-2/5 min-w-64 h-9 outline-none"
           value={searchInput}
           onChange={(e) => {
             setSearchInput(e.target.value);

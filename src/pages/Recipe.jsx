@@ -103,7 +103,7 @@ const Recipe = () => {
       {!isLoading && (
         <section>
           <div className="lg:my-10">
-            <div className="flex flex-col w-full gap-4 space-y-4">
+            <div className="flex flex-col lg:flex-row w-full gap-4 space-y-4">
               <div className="min-w-80 ">
                 <img
                   className="aspect-square size-80 rounded-xl "
@@ -126,8 +126,6 @@ const Recipe = () => {
                     ? query.strInstructions
                     : query.strInstructions.slice(0, 500) + "..."}
                 </p>
-              </div>
-              <div>
                 <h1 className="text-3xl">Ingredients</h1>
                 <div className="grid grid-cols-2">
                   <p>
