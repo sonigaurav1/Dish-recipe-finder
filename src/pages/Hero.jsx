@@ -36,16 +36,18 @@ const Hero = () => {
           Simple And Tasty Recipes
         </h1>
         <p className="text-center text-gray-500">
-        If you're looking for some delicious and easy-to-make recipes, you've come to the right place.
+          If you're looking for some delicious and easy-to-make recipes, you've
+          come to the right place.
         </p>
       </div>
-      <section className="grid grid-cols-4 gap-16 mt-8">
+      <section className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-16 mt-8">
         {canadianDish.length == 0 ? (
           <p>No Dish Available</p>
         ) : (
           canadianDish.map(({ strMeal, strMealThumb, idMeal }) => {
             return (
               <DeliciousRecipe
+              id={idMeal}
                 image={strMealThumb}
                 name={strMeal}
                 key={idMeal}
@@ -60,16 +62,18 @@ const Hero = () => {
           Try This Delicious Recipe To Make Your Day.
         </h1>
         <p className="text-center text-gray-500">
-        If you're looking for some delicious and easy-to-make recipes, you've come to the right place.
+          If you're looking for some delicious and easy-to-make recipes, you've
+          come to the right place.
         </p>
       </div>
-      <section className="grid grid-cols-4 gap-16 mt-8">
+      <section className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-16 mt-8">
         {indianDish.length == 0 ? (
           <p>No Dish Available</p>
         ) : (
           indianDish.map(({ strMeal, strMealThumb, idMeal }) => {
             return (
               <DeliciousRecipe
+                id={idMeal}
                 image={strMealThumb}
                 name={strMeal}
                 key={idMeal}

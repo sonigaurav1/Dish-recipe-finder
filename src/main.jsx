@@ -7,6 +7,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Layout from "./components/Layout.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
 import Recipes from "./pages/Recipes.jsx";
+import Recipe from "./pages/Recipe.jsx";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,8 @@ const router = createBrowserRouter([
       { index: true, element: <App /> },
       { path: "/categories/:category", element: <CatogoriesPage /> },
       { path: "/recipes", element: <Recipes /> },
+      { path: "/recipe/:id", element: <Recipe /> },
+      { path: "/categories/:category/recipe/:id", element: <Recipe /> },
     ],
   },
 ]);

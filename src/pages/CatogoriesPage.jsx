@@ -1,30 +1,53 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchRecipe } from "../_lib/fetchRecipe.js";
+import DeliciousRecipe from "../components/DeliciousRecipe.jsx";
 
 const CatogoriesPage = () => {
   const { category } = useParams();
   const [categories, setCategories] = useState([]);
+  const [error, setError] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const data = fetchRecipe("c",category);
-    console.log(typeof data)
-    setCategories(data);
+    const fetchData = async () => {
+      setCategories([]);
+      setIsLoading(true);
+      const data = await fetchRecipe("c", category);
+      setError();
+      setCategories(await data);
+      console.log(data);
+      setIsLoading(false);
+    };
+    fetchData();
   }, []);
 
-  useEffect(() => {
-    console.log(categories);
-  }, [categories]);
+  if (isLoading) {
+    return (
+      <section>
+        <p>Loading..</p>
+      </section>
+    );
+  }
+  if (error) {
+    <section>
+      <p>{error}</p>
+    </section>;
+  }
 
   return (
-    <section>
-      {categories?.length > 0 ? (
+    <section className="grid grid-cols-4 gap-16 mt-8">
+      {!isLoading &&
         categories.map(({ strMeal, strMealThumb, idMeal }) => {
-          return <li>{strMeal}</li>;
-        })
-      ) : (
-        <p>No recipes found in this category</p>
-      )}
+          return (
+            <DeliciousRecipe
+              id={idMeal}
+              image={strMealThumb}
+              name={strMeal}
+              key={idMeal}
+            />
+          );
+        })}
     </section>
   );
 };

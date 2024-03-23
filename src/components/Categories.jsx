@@ -4,40 +4,69 @@ import { Link } from "react-router-dom";
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
+  const [error, setError] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+  const [allCategories, setAllCategories] = useState(false);
 
   useEffect(() => {
-    async function fetchData() {
-      const response = await fetch(
-        "https://www.themealdb.com/api/json/v1/1/categories.php"
-      );
-      const data = await response.json();
-      const { categories } = data;
-      setCategories(await categories);
-    }
+    const fetchData = async () => {
+      setIsLoading(true);
+      try {
+        const response = await fetch(
+          "https://www.themealdb.com/api/json/v1/1/categories.php"
+        );
+        if (!response.ok) {
+          throw new Error("Could not get data.");
+        } else {
+          setError();
+          const data = await response.json();
+          const { categories } = data;
+          setCategories(await categories);
+          console.log(data);
+        }
+      } catch (error) {
+        console.error(error);
+        setError(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
     fetchData();
   }, []);
 
-  // useEffect(() => {
-  //   console.log(categories);
-  //   console.log(typeof categories);
-  // }, [categories]);
+  if (isLoading) {
+    return <section>Loading...</section>;
+  }
+
+  if (error) {
+    return <section>{error}</section>;
+  }
 
   return (
     <section>
       <div className="my-6">
         <div className="flex justify-between my-4">
-          <h1 className="text-5xl font-bold">Catogories</h1>
-          <button className="text-black bg-blue-200 py-2 px-4 rounded-lg">
+          <h1 className="lg:text-5xl text-2xl font-bold">Catogories</h1>
+          <button onClick={()=>{setAllCategories(!allCategories)}} className="text-black bg-blue-200 py-2 px-4 rounded-lg">
             View All Catogories
           </button>
         </div>
-        <div className="grid grid-cols-6 gap-8">
-          {categories?.length > 0
-            ? categories.map(
-                ({ idCategory, strCategory, strCategoryThumb }, index) => {
-                  if (index > 5) {
-                    return;
-                  } else {
+        <div className="lg:grid-cols-6 grid grid-cols-1 gap-8 ">
+          {!isLoading &&
+            categories.map(
+              ({ idCategory, strCategory, strCategoryThumb }, index) => {
+                if (allCategories) {
+                  return (
+                    <Link to={`/categories/${strCategory}`} key={idCategory}>
+                      <Category
+                        key={idCategory}
+                        image={strCategoryThumb}
+                        category={strCategory}
+                      />
+                    </Link>
+                  );
+                } else {
+                  if (index < 6) {
                     return (
                       <Link to={`/categories/${strCategory}`} key={idCategory}>
                         <Category
@@ -49,8 +78,8 @@ const Categories = () => {
                     );
                   }
                 }
-              )
-            : "Loading..."}
+              }
+            )}
         </div>
       </div>
     </section>

@@ -17,9 +17,9 @@ const Header = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   return (
     <header className="">
-      <nav className="flex justify-between items-center mx-20 py-6  ">
+      <nav className="flex justify-between items-center lg:mx-20 mx-4 py-6  ">
         <h1 className="lobster-regular cursor-pointer transition-all hover:text-[#f60] ">
-          Foodieland
+          <Link to="/">Foodieland</Link>
         </h1>
         <ul className="flex gap-8 cursor-pointer transition-all ">
           {navLinks.map((link, index) => {
