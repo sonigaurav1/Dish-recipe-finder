@@ -124,13 +124,13 @@ const Recipes = () => {
                   <p>Area: {query.strArea}</p>
                 </div>
                 <div>
+                    <h2 className="text-3xl"> Instructions</h2>
                   <p
                     onClick={() => {
                       setFullSentence(!fullSentence);
                     }}
                     className="cursor-pointer "
                   >
-                    <h2 className="text-3xl"> Instructions</h2>
                     {fullSentence
                       ? query.strInstructions
                       : query.strInstructions.slice(0, 500) + "..."}

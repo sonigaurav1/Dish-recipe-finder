@@ -88,7 +88,7 @@ const Recipe = () => {
       </section>
     );
   }
-  
+
   if (error) {
     return (
       <section>
@@ -98,11 +98,11 @@ const Recipe = () => {
   }
 
   return (
-    <div className="w-full mb-10">
+    <div className="mb-10">
       {!isLoading && (
         <section>
-          <div className="my-10">
-            <div className="flex w-full gap-4">
+          <div className="lg:my-10">
+            <div className="flex flex-col w-full gap-4 space-y-4">
               <div className="min-w-80 ">
                 <img
                   className="aspect-square size-80 rounded-xl "
@@ -114,14 +114,19 @@ const Recipe = () => {
                 <p>Area: {query.strArea}</p>
               </div>
               <div>
+                <h2 className="text-3xl"> Instructions</h2>
                 <p
                   onClick={() => {
                     setFullSentence(!fullSentence);
                   }}
                   className="cursor-pointer "
                 >
-                  {/* <h2 className="text-3xl"> Instructions</h2> */}
+                  {fullSentence
+                    ? query.strInstructions
+                    : query.strInstructions.slice(0, 500) + "..."}
                 </p>
+              </div>
+              <div>
                 <h1 className="text-3xl">Ingredients</h1>
                 <div className="grid grid-cols-2">
                   <p>
@@ -276,7 +281,7 @@ const Recipe = () => {
                 <div className="mt-2">
                   <a target="_blank" href={strYoutube}>
                     <ViewRecipeButton>
-                      View Recipes <FaCirclePlay />
+                      <span className="mr-1">View Recipes</span> <FaCirclePlay />
                     </ViewRecipeButton>
                   </a>
                 </div>

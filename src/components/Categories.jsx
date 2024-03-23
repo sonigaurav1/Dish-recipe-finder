@@ -34,9 +34,9 @@ const Categories = () => {
     fetchData();
   }, []);
 
-  if (isLoading) {
-    return <section>Loading...</section>;
-  }
+  // if (isLoading) {
+  //   return <section>Loading...</section>;
+  // }
 
   if (error) {
     return <section>{error}</section>;
@@ -47,12 +47,12 @@ const Categories = () => {
       <div className="my-6">
         <div className="flex justify-between my-4">
           <h1 className="lg:text-5xl text-2xl font-bold">Catogories</h1>
-          <button onClick={()=>{setAllCategories(!allCategories)}} className="text-black bg-blue-200 py-2 px-4 rounded-lg">
+          <button onClick={()=>{setAllCategories(!allCategories)}} className="text-black bg-blue-200 py-2 px-4 rounded-lg max-w-max">
             View All Catogories
           </button>
         </div>
-        <div className="lg:grid-cols-6 grid grid-cols-1 gap-8 ">
-          {!isLoading &&
+        <div className="lg:grid-cols-6 grid grid-cols-2 gap-8 ">
+          {!isLoading ?
             categories.map(
               ({ idCategory, strCategory, strCategoryThumb }, index) => {
                 if (allCategories) {
@@ -79,7 +79,9 @@ const Categories = () => {
                   }
                 }
               }
-            )}
+            ): 
+            <p>Loading...</p>
+            }
         </div>
       </div>
     </section>

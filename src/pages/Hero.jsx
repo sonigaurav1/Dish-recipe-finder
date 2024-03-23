@@ -31,15 +31,17 @@ const Hero = () => {
         </div> */}
       <HotRecipe />
       <Categories />
-      <div className="mt-10">
-        <h1 className="text-center text-5xl text-medium">
-          Simple And Tasty Recipes
-        </h1>
-        <p className="text-center text-gray-500">
-          If you're looking for some delicious and easy-to-make recipes, you've
-          come to the right place.
-        </p>
-      </div>
+      <section>
+        <div className="mt-10">
+          <h1 className="text-center text-5xl text-medium">
+            Simple And Tasty Recipes
+          </h1>
+          <p className="text-center text-gray-500">
+            If you're looking for some delicious and easy-to-make recipes,
+            you've come to the right place.
+          </p>
+        </div>
+      </section>
       <section className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-16 mt-8">
         {canadianDish.length == 0 ? (
           <p>No Dish Available</p>
@@ -47,7 +49,7 @@ const Hero = () => {
           canadianDish.map(({ strMeal, strMealThumb, idMeal }) => {
             return (
               <DeliciousRecipe
-              id={idMeal}
+                id={idMeal}
                 image={strMealThumb}
                 name={strMeal}
                 key={idMeal}
@@ -57,7 +59,7 @@ const Hero = () => {
         )}
       </section>
       <LearnMore />
-      <div>
+      <section>
         <h1 className="text-center text-5xl text-medium">
           Try This Delicious Recipe To Make Your Day.
         </h1>
@@ -65,7 +67,7 @@ const Hero = () => {
           If you're looking for some delicious and easy-to-make recipes, you've
           come to the right place.
         </p>
-      </div>
+      </section>
       <section className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-16 mt-8">
         {indianDish.length == 0 ? (
           <p>No Dish Available</p>

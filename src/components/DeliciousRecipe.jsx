@@ -11,10 +11,10 @@ const DeliciousRecipe = ({ name, image, id }) => {
           <div className="overflow-hidden rounded-3xl">
             <img loading="lazy" className="min-w-60" src={image} alt="" />
           </div>
-          <h2 className="font-bold p-1 cursor-pointer max-w-max hover:text-orange-400">
+          <h2 className="font-bold p-1 text-2xl text-center mx-auto cursor-pointer max-w-max hover:text-orange-400">
             {name}
           </h2>
-          <div className="flex gap-6 mt-4">
+          <div className="flex mx-auto max-w-max space-x-6 lg:mt-4 mt-2">
             <span className="flex">
               <PiTimerFill className="text-xl" />
               30 Minutes

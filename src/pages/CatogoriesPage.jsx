@@ -36,7 +36,7 @@ const CatogoriesPage = () => {
   }
 
   return (
-    <section className="grid grid-cols-4 gap-16 mt-8">
+    <section className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-16 mt-8">
       {!isLoading &&
         categories.map(({ strMeal, strMealThumb, idMeal }) => {
           return (

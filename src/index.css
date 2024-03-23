@@ -11,8 +11,43 @@
 section {
   margin: 0 5rem;
 }
-@media screen and (max-width:500px) {
-  section{
+header {
+  margin: 0 5rem;
+}
+@media screen and (max-width: 1024px) {
+  section {
+    margin: 0 3rem;
+  }
+  header {
+    margin: 0 3rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  section {
+    margin: 0 2rem;
+  }
+  header {
+    margin: 0 2rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  section {
     margin: 0 1rem;
   }
+  header {
+    margin: 0 1rem;
+  }
+  .hotRecipeImage {
+    position: absolute;
+    top: -7rem;
+    left: 0;
+  }
+}
+
+
+.closed-menu {
+  left: -100% !important;
+}
+.open-menu {
+  left: 0 !important;
 }
