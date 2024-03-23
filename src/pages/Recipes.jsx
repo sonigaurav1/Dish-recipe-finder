@@ -76,7 +76,7 @@ const Recipes = () => {
       } else {
         const { meals } = await res.json();
         setQuery(meals[0] || []);
-        console.log(meals[0]);
+
       }
     } catch (err) {
       console.error(err.message);

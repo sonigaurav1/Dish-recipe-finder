@@ -1,3 +1,4 @@
+import Loading from "./components/Loading";
 import Hero from "./pages/Hero";
 
 function App() {

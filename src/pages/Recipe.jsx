@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ViewRecipeButton from "../components/ViewRecipeButton";
 import { FaCirclePlay } from "react-icons/fa6";
 import { useParams } from "react-router-dom";
+import Loading from "../components/Loading";
 
 const Recipe = () => {
   const { id } = useParams();
@@ -69,7 +70,7 @@ const Recipe = () => {
           const data = await response.json();
           const { meals } = data;
           setQuery(await meals[0]);
-          console.log(meals[0]);
+
         }
       } catch (error) {
         console.error(error);
@@ -84,7 +85,7 @@ const Recipe = () => {
   if (isLoading) {
     return (
       <section>
-        <p>Loading...</p>
+        <Loading/>
       </section>
     );
   }

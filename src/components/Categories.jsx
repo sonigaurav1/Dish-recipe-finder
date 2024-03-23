@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Category from "./Category";
 import { Link } from "react-router-dom";
+import Loading from "./Loading";
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
@@ -22,7 +23,6 @@ const Categories = () => {
           const data = await response.json();
           const { categories } = data;
           setCategories(await categories);
-          console.log(data);
         }
       } catch (error) {
         console.error(error);
@@ -47,12 +47,22 @@ const Categories = () => {
       <div className="my-6">
         <div className="flex justify-between my-4">
           <h1 className="lg:text-5xl text-2xl font-bold">Catogories</h1>
-          <button onClick={()=>{setAllCategories(!allCategories)}} className="text-black bg-blue-200 py-2 px-4 rounded-lg max-w-max">
+          <button
+            onClick={() => {
+              setAllCategories(!allCategories);
+            }}
+            className="text-black bg-blue-200 py-2 px-4 rounded-lg max-w-max"
+          >
             View All Catogories
           </button>
         </div>
+        {isLoading && (
+          <div className="mt-10">
+            <Loading />
+          </div>
+        )}
         <div className="lg:grid-cols-6 grid grid-cols-2 gap-8 ">
-          {!isLoading ?
+          {!isLoading &&
             categories.map(
               ({ idCategory, strCategory, strCategoryThumb }, index) => {
                 if (allCategories) {
@@ -79,9 +89,7 @@ const Categories = () => {
                   }
                 }
               }
-            ): 
-            <p>Loading...</p>
-            }
+            )}
         </div>
       </div>
     </section>

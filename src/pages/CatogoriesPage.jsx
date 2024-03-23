@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchRecipe } from "../_lib/fetchRecipe.js";
 import DeliciousRecipe from "../components/DeliciousRecipe.jsx";
+import Loading from "../components/Loading.jsx";
 
 const CatogoriesPage = () => {
   const { category } = useParams();
@@ -16,7 +17,7 @@ const CatogoriesPage = () => {
       const data = await fetchRecipe("c", category);
       setError();
       setCategories(await data);
-      console.log(data);
+
       setIsLoading(false);
     };
     fetchData();
@@ -25,7 +26,7 @@ const CatogoriesPage = () => {
   if (isLoading) {
     return (
       <section>
-        <p>Loading..</p>
+        <Loading/>
       </section>
     );
   }
