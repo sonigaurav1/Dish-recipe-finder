@@ -3,6 +3,7 @@ import ViewRecipeButton from "../components/ViewRecipeButton";
 import { FaCirclePlay } from "react-icons/fa6";
 import { useParams } from "react-router-dom";
 import Loading from "../components/Loading";
+import Header from "../components/Header";
 
 const Recipe = () => {
   const { id } = useParams();
@@ -85,6 +86,7 @@ const Recipe = () => {
   if (isLoading) {
     return (
       <section>
+      <Header index="1"/>
         <Loading/>
       </section>
     );
@@ -102,6 +104,7 @@ const Recipe = () => {
     <div className="mb-10">
       {!isLoading && (
         <section>
+        <Header index="1"/>
           <div className="lg:my-10">
             <div className="flex flex-col lg:flex-row w-full gap-4 space-y-4">
               <div className="min-w-80 ">

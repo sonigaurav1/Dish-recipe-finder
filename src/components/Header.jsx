@@ -4,7 +4,8 @@ import { FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({index}) => {
+
   const navLinks = [
     { path: "/", name: "Home" },
     { path: "/recipes", name: "Recipes" },
@@ -14,7 +15,10 @@ const Header = () => {
   ];
   let active = "text-[#f60] hidden lg:block";
   let unactive = "hover:text-[#f60] hidden lg:block";
-  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const [selectedIndex, setSelectedIndex] = useState(index || 0);
+
+
   function handleMenuOpen() {
     document.body.classList.add("fixed")
     const menu = document.querySelector(".mobile-nav");

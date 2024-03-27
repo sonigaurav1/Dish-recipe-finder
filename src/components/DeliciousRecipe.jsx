@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { PiTimerFill } from "react-icons/pi";
 import { PiForkKnifeFill } from "react-icons/pi";
 import { Link } from "react-router-dom";
 
-const DeliciousRecipe = ({ name, image, id }) => {
+const DeliciousRecipe = ({ name, image, id, onClick }) => {
   return (
     <Link to={`recipe/${id}`} >
-      <article>
+      <article onClick={onClick}>
         <div>
           <div className="overflow-hidden rounded-3xl">
             <img loading="lazy" className="min-w-60" src={image} alt="" />

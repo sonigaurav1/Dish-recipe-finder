@@ -6,6 +6,7 @@ import HotRecipe from "../components/HotRecipe";
 import LearnMore from "../components/LearnMore";
 import { fetchRecipe } from "../_lib/fetchRecipe";
 import Loading from "../components/Loading";
+import Header from "../components/Header";
 
 const Hero = () => {
   const [indianDish, setIndianDish] = useState([]);
@@ -41,6 +42,7 @@ const Hero = () => {
 
   return (
     <>
+      <Header/>
       <HotRecipe />
       <Categories />
       <section>
@@ -104,7 +106,6 @@ const Hero = () => {
             );
           })}
       </section>
-      {/* <Footer /> */}
     </>
   );
 };

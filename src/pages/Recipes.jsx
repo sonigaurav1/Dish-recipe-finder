@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import ViewRecipeButton from "../components/ViewRecipeButton";
 import { FaCirclePlay } from "react-icons/fa6";
+import Header from "../components/Header";
 
 const Recipes = () => {
   const [query, setQuery] = useState([]);
@@ -83,6 +84,8 @@ const Recipes = () => {
     }
   };
   return (
+   <>
+    <Header index="1"/>
     <div className="w-full mb-10">
       <form
         className="flex items-center justify-center"
@@ -300,6 +303,7 @@ const Recipes = () => {
         </>
       )}
     </div>
+   </>
   );
 };
 
