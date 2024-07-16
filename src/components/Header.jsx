@@ -18,7 +18,6 @@ const Header = ({index}) => {
 
   const [selectedIndex, setSelectedIndex] = useState(index || 0);
 
-
   function handleMenuOpen() {
     document.body.classList.add("fixed")
     const menu = document.querySelector(".mobile-nav");

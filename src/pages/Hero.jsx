@@ -42,7 +42,7 @@ const Hero = () => {
 
   return (
     <>
-      <Header/>
+      <Header />
       <HotRecipe />
       <Categories />
       <section>
@@ -63,7 +63,7 @@ const Hero = () => {
           </div>
         )}
       </section>
-      <section className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-16 mt-8">
+      <section className="grid grid-cols-2 lg:grid-cols-4 md:grid-cols-2 gap-16 max-sm:gap-6 mt-8">
         {!isLoading &&
           canadianDish.map(({ strMeal, strMealThumb, idMeal }) => {
             return (
@@ -93,7 +93,7 @@ const Hero = () => {
           </div>
         )}
       </section>
-      <section className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-16 mt-8">
+      <section className="grid grid-cols-2 lg:grid-cols-4 md:grid-cols-2 gap-16 max-sm:gap-6 mt-8">
         {!isLoading &&
           indianDish.map(({ strMeal, strMealThumb, idMeal }) => {
             return (
